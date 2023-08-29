@@ -20,13 +20,14 @@ def get_average_delivery_time(current_date, parsed_data, window_size):
         return sum(durations) / len(durations)
 
 
-def moving_average(input_file, window_size):
+def get_moving_average(input_file, window_size):
     if os.path.exists(input_file):
         with(open(input_file)) as f:
             result = []
             parsed_data = {}
             data = json.load(f)
 
+            #parse data into a dictionary with datetime as key and duration as value
             for event in data:
                 event_date = datetime.strptime(event['timestamp'], '%Y-%m-%d %H:%M:%S.%f')
                 parsed_data[event_date] = event['duration']
@@ -34,10 +35,11 @@ def moving_average(input_file, window_size):
             #get first and last event dates in datetime format without factoring in seconds    
             first_event_date = list(parsed_data.keys())[0]
             last_event_date = list(parsed_data.keys())[-1]
-
+            
+            #get the the average for the indicated window size for each minute interval and append to result
             interval = timedelta(minutes=1)
             current_date = first_event_date
-            while current_date < last_event_date:
+            while current_date < last_event_date + interval:
                 formatted_date = current_date.strftime("%Y-%m-%d %H:%M:00")
                 result.append({
                     'date': formatted_date,
@@ -45,23 +47,13 @@ def moving_average(input_file, window_size):
                 })
                 current_date += interval
 
-            #get the average for the last window
-            formatted_date = current_date.strftime("%Y-%m-%d %H:%M:00")
-            result.append({
-                'date': formatted_date,
-                'average_delivery_time': get_average_delivery_time(current_date, parsed_data, window_size)
-            })
-            print(result)
+            return result
     else:
         raise Exception('Input file not found')
 
-
-
-
-
 def main():
     args = parser.parse_args()
-    moving_average(args.input_file, args.window_size)
+    print(get_moving_average(args.input_file, args.window_size))
 
 if __name__ == '__main__':
     main()
