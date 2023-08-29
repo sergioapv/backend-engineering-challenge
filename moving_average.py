@@ -1,5 +1,4 @@
 from datetime import datetime, timedelta
-from collections import OrderedDict
 import argparse
 import json 
 import os
@@ -13,6 +12,7 @@ def get_average_delivery_time(end_date:datetime, parsed_data:dict, window_size:i
     start_date:datetime = end_date - timedelta(minutes=window_size)
     durations:list = []
     copy_parsed_data:dict = parsed_data.copy()
+
     for event_date, duration in parsed_data.items():
         if start_date <= event_date < end_date:
             durations.append(duration)
