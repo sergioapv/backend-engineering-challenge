@@ -70,7 +70,7 @@ Input JSON file structure example:
 
 To validate the functionality of the application, a set of tests has been provided in the "tests" folder. To run the tests, use the following command from the root of the repository:
 
- ```pytest moving_average_tests.py```
+ ```pytest tests/moving_average_tests.py```
 
 This will execute the test suite and verify that the application performs as intended.
 
