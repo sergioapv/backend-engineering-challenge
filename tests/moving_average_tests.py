@@ -3,8 +3,8 @@ import pytest
 import json
 import os 
 
-TEST_INPUT_FOLDER = 'inputs'
-TEST_OUTPUT_FOLDER = 'outputs'
+TEST_INPUT_FOLDER = 'tests/inputs'
+TEST_OUTPUT_FOLDER = 'tests/outputs'
 
 def base_test(input_file:str, window_size:int, expected_output_file:str):
     input_file_path = os.path.join(TEST_INPUT_FOLDER, input_file)
@@ -31,4 +31,3 @@ def test_larger_window():
 
 def test_different_year():
     base_test('test5_input.json', 10, 'test5_output.json')
-
