@@ -22,3 +22,13 @@ def test_provided_example():
 
 def test_repeating_elements():
     base_test('test2_input.json', 10, 'test2_output.json')
+
+def test_smaller_window():
+    base_test('test3_input.json', 5, 'test3_output.json')
+
+def test_larger_window():
+    base_test('test4_input.json', 60, 'test4_output.json')
+
+def test_different_year():
+    base_test('test5_input.json', 10, 'test5_output.json')
+
