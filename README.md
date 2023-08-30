@@ -39,6 +39,32 @@ options:
                         Moving average window size in minutes
 ```
 
+Input JSON file structure example: 
+
+```[
+    {
+        "timestamp": "2018-12-26 18:11:08.509654",
+        "translation_id": "5aa5b2f39f7254a75aa5",
+        "source_language": "en",
+        "target_language": "fr",
+        "client_name": "airliberty",
+        "event_name": "translation_delivered",
+        "nr_words": 30, 
+        "duration": 20
+    },
+    {
+        "timestamp": "2018-12-26 18:15:19.903159",
+        "translation_id": "5aa5b2f39f7254a75aa4",
+        "source_language": "en",
+        "target_language": "fr",
+        "client_name": "airliberty",
+        "event_name": "translation_delivered",
+        "nr_words": 30, 
+        "duration": 31
+    }
+]
+```
+
 ## Testing the Application
 
 To validate the functionality of the application, a set of tests has been provided in the "tests" folder. To run the tests, use the following command from the root of the repository:
