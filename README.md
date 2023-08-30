@@ -14,7 +14,7 @@ To ensure accuracy and proper functioning, certain assumptions were made regardi
 
 ## Setup Instructions
 
-The application has minimal dependencies, the only one being **Pytest 7.1.1**. It was developed using **Python 3.10**. To prepare for running the command-line interface (CLI), install the program dependencies with the following command:
+The application has minimal dependencies, the only one being **Pytest 7.1.1**. It was developed using **Python 3.10**. To prepare for running the command-line interface (CLI), install the program dependencies with the following command from the repository root folder:
 
 ```pip install -e . ```
 ## How to Run the Application
