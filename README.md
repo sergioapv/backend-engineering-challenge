@@ -41,7 +41,8 @@ options:
 
 Input JSON file structure example: 
 
-```[
+```
+[
     {
         "timestamp": "2018-12-26 18:11:08.509654",
         "translation_id": "5aa5b2f39f7254a75aa5",
